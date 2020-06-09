@@ -5,7 +5,7 @@ function maximalSquare(matrix) {
   let rows = matrix.length;
   let cols = matrix[0].length;
   let dp = [];
-  let max = Number.MIN_VALUE;// 不是特别明白这里取这个最小值的原因
+  let max = Number.MIN_VALUE;
 
   for(let i = 0; i <= rows; i++) {
     if(i === 0){
