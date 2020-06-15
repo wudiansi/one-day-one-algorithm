@@ -19,11 +19,12 @@ function cuttingRope(n) {
 
   const a = Math.floor(n/3); //多少个3
   const b = n % 3;
-  
-  if(b === 0) return Math.pow(a, 3);
 
-  if(b === 1) return Math.pow(a-1, 3) * 4;
+  if(b === 0) return Math.pow(3, a);
+
+  if(b === 1) return Math.pow(3, a-1) * 4;
 
   // b === 2
-  return Math.pow(a, 3) * 2
+  return Math.pow(3, a) * 2
 }
+cuttingRope(10);
