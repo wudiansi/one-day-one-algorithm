@@ -18,3 +18,4 @@ function permute(nums) {
 
   return res;
 }
+console.log(permute([1,2,3,4]))
