@@ -16,4 +16,4 @@ function hillSort(arr) {
   }
   return arr
 }
-console.log(hillSort([2,4,11,3,9,1,22]))
+console.log(hillSort([2,4,11,3,9,1,22,19]))
