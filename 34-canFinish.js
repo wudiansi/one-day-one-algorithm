@@ -1,19 +1,19 @@
 /**
  * @param {number} numCourses
  * @param {number[][]} prerequisites
- * @return {number[]}
+ * @return {boolean}
  */
-class Node{
-  constructor(value){
+class Node {
+  constructor(value) {
     this.value = value;
     this.next = null;
     this.in = 0;
   }
 }
 
-class Graph{
-  constructor(nodeNum, edges){
-    this.list = new Array(nodeNum);
+class Graph {
+  constructor(nums, edges){
+    this.list = new Array(nums);
     for(let i = 0; i < this.list.length; i++){
       this.list[i] = new Node(i);
     }
@@ -28,25 +28,21 @@ class Graph{
   }
 }
 
-var findOrder = function(numCourses, prerequisites) {
+var canFinish = function(numCourses, prerequisites) {
   let list = new Graph(numCourses, prerequisites).list;
-  let stack = [], res = [];
+  let stack = [];
   for(let node of list){
-    node.in === 0 && stack.push(node);
+    node.in === 0 && stack.push(node)
   }
   let count = 0;
   while(stack.length){
     let node = stack.pop();
     count++;
-    res.push(node.value);
     while(node.next){
-      --list[node.next.value].in === 0 && stack.push(list[node.next.value]);
+      (--list[node.next.value].in) === 0 && stack.push(list[node.next.value]);
       node = node.next;
     }
   }
 
-  if(count != list.length) return []
-  else return res
+  return count === list.length
 };
-
-console.log(findOrder(4, [[1,0],[2,0],[3,1],[3,2]]));
